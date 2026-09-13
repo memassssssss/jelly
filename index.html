@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Jelly Scene</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Карточка импортов для разрешения модулей -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div id="webgl-container">
+        <button id="launch-btn" class="jelly-btn">Подбросить желе</button>
+
+<style>
+.jelly-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background: rgba(74, 74, 226, 0.8);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    z-index: 100;
+}
+.jelly-btn:hover {
+    background: rgba(90, 90, 255, 1);
+    transform: translateX(-50%) scale(1.05);
+}
+.jelly-btn:active {
+    transform: translateX(-50%) scale(0.95);
+}
+</style>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
