@@ -176,8 +176,8 @@ const baseScale = 20;
 let rawMinY = 0;
 let posY = 4.5;
 let velocityY = 0;
-const gravity = 0.001; 
-const bounceCoeff = 0.1; 
+let gravity = 0.001; 
+let bounceCoeff = 0.1;
 let isGrounded = false;
 let animTime = 0;
 
@@ -328,4 +328,56 @@ window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ==========================================
+// ЛОГИКА ПАНЕЛИ УПРАВЛЕНИЯ (ПОЛЗУНКИ)
+// ==========================================
+
+// Упругость (Stiffness)
+const stiffnessInput = document.getElementById('stiffness');
+const stiffnessVal = document.getElementById('stiffness-val');
+stiffnessInput.addEventListener('input', (e) => {
+    const val = parseFloat(e.target.value);
+    jellyPhysics.stiffness = val;
+    stiffnessVal.textContent = val.toFixed(4);
+});
+
+// Вязкость / Затухание (Damping)
+const dampingInput = document.getElementById('damping');
+const dampingVal = document.getElementById('damping-val');
+dampingInput.addEventListener('input', (e) => {
+    const val = parseFloat(e.target.value);
+    jellyPhysics.damping = val;
+    dampingVal.textContent = val.toFixed(2);
+});
+
+// Гравитация (Gravity)
+const gravityInput = document.getElementById('gravity');
+const gravityVal = document.getElementById('gravity-val');
+gravityInput.addEventListener('input', (e) => {
+    const val = parseFloat(e.target.value);
+    gravity = val;
+    gravityVal.textContent = val.toFixed(4);
+});
+
+// Отскок от пола (Bounce)
+const bounceInput = document.getElementById('bounce');
+const bounceVal = document.getElementById('bounce-val');
+bounceInput.addEventListener('input', (e) => {
+    const val = parseFloat(e.target.value);
+    bounceCoeff = val;
+    bounceVal.textContent = val.toFixed(2);
+});
+// Выбор цвета желе
+const jellyColorInput = document.getElementById('jellyColor');
+jellyColorInput.addEventListener('input', (e) => {
+    const newColor = e.target.value;
+    if (jellyModel) {
+        jellyModel.traverse((child) => {
+            if (child.isMesh && child.material && child.material.color) {
+                child.material.color.set(newColor);
+            }
+        });
+    }
 });
