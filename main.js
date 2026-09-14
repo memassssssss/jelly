@@ -369,3 +369,15 @@ bounceInput.addEventListener('input', (e) => {
     bounceCoeff = val;
     bounceVal.textContent = val.toFixed(2);
 });
+// Выбор цвета желе
+const jellyColorInput = document.getElementById('jellyColor');
+jellyColorInput.addEventListener('input', (e) => {
+    const newColor = e.target.value;
+    if (jellyModel) {
+        jellyModel.traverse((child) => {
+            if (child.isMesh && child.material && child.material.color) {
+                child.material.color.set(newColor);
+            }
+        });
+    }
+});
