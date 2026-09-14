@@ -17,7 +17,6 @@
     </script>
 </head>
 <body>
-    
 
     <div id="webgl-container">
         <button id="launch-btn" class="jelly-btn">Подбросить желе</button>
@@ -53,5 +52,30 @@
     </div>
 
     <script type="module" src="js/main.js"></script>
+
+    <!-- Добавь этот блок перед закрывающим </body> -->
+<div id="controls-panel">
+    <h3>Физика желе</h3>
+    
+    <div class="control-group">
+        <label for="stiffness">Упругость: <span id="stiffness-val">0.0006</span></label>
+        <input type="range" id="stiffness" min="0.0001" max="0.005" step="0.0001" value="0.0006">
+    </div>
+    
+    <div class="control-group">
+        <label for="damping">Вязкость: <span id="damping-val">0.90</span></label>
+        <input type="range" id="damping" min="0.5" max="0.99" step="0.01" value="0.9">
+    </div>
+    
+    <div class="control-group">
+        <label for="gravity">Гравитация: <span id="gravity-val">0.001</span></label>
+        <input type="range" id="gravity" min="0.0001" max="0.01" step="0.0001" value="0.001">
+    </div>
+    
+    <div class="control-group">
+        <label for="bounce">Отскок: <span id="bounce-val">0.10</span></label>
+        <input type="range" id="bounce" min="0" max="0.8" step="0.01" value="0.1">
+    </div>
+</div>
 </body>
 </html>

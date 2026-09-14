@@ -18,3 +18,53 @@ html, body {
     height: 100vh;
     display: block;
 }
+
+/* --- Стили для панели управления --- */
+#controls-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(20, 9, 25, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 20px;
+    color: #fff;
+    width: 280px;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#controls-panel h3 {
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+    color: #e702fc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.control-group {
+    margin-bottom: 15px;
+}
+
+.control-group label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #e2e2e2;
+}
+
+.control-group span {
+    color: #6ee7b7; /* Неоновый цвет, как у кольца */
+    font-weight: bold;
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+    accent-color: #6ee7b7;
+    cursor: pointer;
+    background: transparent;
+}
